@@ -1,0 +1,11 @@
+[package]
+name = "regexp-bomb"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "main"
+path = "main.rs"
+
+[dependencies]
+regex = "1"
