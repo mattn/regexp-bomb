@@ -10,7 +10,7 @@ The pattern `/(a+)*b$/` tested against the string `"aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 | Language | File | ReDoS Impact |
 |---|---|---|
-| **JavaScript** | `js/main.js` | Slow (backtracking engine) |
+| **JavaScript** | `js/main.js` | Slow (V8 default; see note below) |
 | **Go** | `go/main.go` | Fast (RE2/NFA-based) |
 | **Rust** | `rust/main.rs` | Fast (RE2/NFA-based) |
 | **Python** | `python/main.py` | Slow (backtracking engine) |
@@ -48,4 +48,4 @@ Tested locally with a 10-second timeout:
 
 Go and Rust use NFA-based regex engines (RE2 and similar), which guarantee linear-time matching regardless of the pattern. Lua uses its own pattern matching engine that doesn't support full regular expressions, so it is also unaffected. Perl and Ruby use backtracking engines but have optimizations that avoid catastrophic backtracking for this pattern. Most other languages use backtracking engines that can exhibit exponential time complexity with pathological patterns like `(a+)*b$`.
 
-> **Important:** The results above reflect specific **implementations**, not language specifications. Most languages do not mandate a particular regex engine in their spec. For example, Java's `java.util.regex` behavior may differ between OpenJDK and other JVMs, PHP's PCRE backtracking limit is a runtime configuration (`pcre.backtracking_limit`), and C++ `std::regex` behavior varies across standard library implementations (libstdc++, libc++, MSVC). The same language can produce different results depending on the runtime, version, or configuration.
+> **Important:** The results above reflect specific **implementations**, not language specifications. For instance, the JavaScript result is from V8's default backtracking engine — Node.js provides `--enable-experimental-regexp-engine` to use a linear-time engine instead, and other JS engines (SpiderMonkey, JavaScriptCore) may behave differently. Most languages do not mandate a particular regex engine in their spec. For example, Java's `java.util.regex` behavior may differ between OpenJDK and other JVMs, PHP's PCRE backtracking limit is a runtime configuration (`pcre.backtracking_limit`), and C++ `std::regex` behavior varies across standard library implementations (libstdc++, libc++, MSVC). The same language can produce different results depending on the runtime, version, or configuration.
