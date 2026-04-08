@@ -21,11 +21,11 @@ The pattern `/(a+)*b$/` tested against the string `"aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 | **Kotlin** | `kotlin/main.kt` | Slow (Java regex) |
 | **Scala** | `scala/Main.scala` | Slow (Java regex) |
 | **Dart** | `dart/main.dart` | Slow (backtracking engine) |
-| **Lua** | `lua/main.lua` | N/A (no full regex support, uses patterns instead) |
+| **Lua** | `lua/main.lua` | Fast (no full regex support, uses its own pattern engine) |
 | **R** | `r/main.R` | Slow (PCRE via `perl = TRUE`) |
 | **Elixir** | `elixir/main.exs` | Fast (PCRE2, backtracking limit) |
 | **Haskell** | `haskell/Main.hs` | Slow (TDFA, pattern-dependent) |
 
 ## Why?
 
-Go and Rust use NFA-based regex engines (RE2 and similar), which guarantee linear-time matching regardless of the pattern. Most other languages use backtracking engines that can exhibit exponential time complexity with pathological patterns like `(a+)*b$`.
+Go and Rust use NFA-based regex engines (RE2 and similar), which guarantee linear-time matching regardless of the pattern. Lua uses its own pattern matching engine that doesn't support full regular expressions, so it is also unaffected. Most other languages use backtracking engines that can exhibit exponential time complexity with pathological patterns like `(a+)*b$`.
