@@ -47,3 +47,5 @@ Tested locally with a 10-second timeout:
 ## Why?
 
 Go and Rust use NFA-based regex engines (RE2 and similar), which guarantee linear-time matching regardless of the pattern. Lua uses its own pattern matching engine that doesn't support full regular expressions, so it is also unaffected. Perl and Ruby use backtracking engines but have optimizations that avoid catastrophic backtracking for this pattern. Most other languages use backtracking engines that can exhibit exponential time complexity with pathological patterns like `(a+)*b$`.
+
+> **Important:** The results above reflect specific **implementations**, not language specifications. Most languages do not mandate a particular regex engine in their spec. For example, Java's `java.util.regex` behavior may differ between OpenJDK and other JVMs, PHP's PCRE backtracking limit is a runtime configuration (`pcre.backtracking_limit`), and C++ `std::regex` behavior varies across standard library implementations (libstdc++, libc++, MSVC). The same language can produce different results depending on the runtime, version, or configuration.
