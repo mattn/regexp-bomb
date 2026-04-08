@@ -15,7 +15,7 @@ The pattern `/(a+)*b$/` tested against the string `"aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 | **Rust** | `rust/main.rs` | Fast (RE2/NFA-based) |
 | **Python** | `python/main.py` | Slow (backtracking engine) |
 | **Ruby** | `ruby/main.rb` | Fast (Onigmo engine optimizes this pattern) |
-| **Java** | `java/Main.java` | Slow (backtracking engine) |
+| **Java** | `java/Main.java` | Fast (JIT-optimized regex engine) |
 | **C#** | `csharp/Program.cs` | Slow (backtracking engine) |
 | **Perl** | `perl/main.pl` | Fast (regex engine optimizes this pattern) |
 | **PHP** | `php/main.php` | Slow (PCRE, but has backtracking limit) |
@@ -41,6 +41,7 @@ Tested locally with a 10-second timeout:
 | **Ruby** | false | 0.000008s |
 | **JavaScript (Node.js)** | - | **TIMEOUT (>10s)** |
 | **Python** | - | **TIMEOUT (>10s)** |
+| **Java** | false | 0.000842s |
 | **C++** | - | **TIMEOUT (>10s)** |
 
 ## Why?
