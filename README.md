@@ -20,8 +20,8 @@ The pattern `/(a+)*b$/` tested against the string `"aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 | **Perl** | `perl/main.pl` | Fast (regex engine optimizes this pattern) |
 | **PHP** | `php/main.php` | Slow (PCRE, but has backtracking limit) |
 | **Swift** | `swift/main.swift` | Slow (ICU regex) |
-| **Kotlin** | `kotlin/main.kt` | Slow (Java regex) |
-| **Scala** | `scala/Main.scala` | Slow (Java regex) |
+| **Kotlin** | `kotlin/main.kt` | Fast (uses java.util.regex internally) |
+| **Scala** | `scala/Main.scala` | Fast (uses java.util.regex internally) |
 | **Dart** | `dart/main.dart` | Slow (backtracking engine) |
 | **Lua** | `lua/main.lua` | Fast (no full regex support, uses its own pattern engine) |
 | **R** | `r/main.R` | Slow (PCRE via `perl = TRUE`) |
