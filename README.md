@@ -4,6 +4,8 @@ A collection of ReDoS (Regular Expression Denial of Service) demonstrations acro
 
 The pattern `/(a+)*b$/` tested against the string `"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaba"` causes catastrophic backtracking in regex engines that use a backtracking (NFA/DFS) approach.
 
+> **Note:** This comparison was produced by Claude Code based on general knowledge of each language's regex engine. It may not reflect the latest state of each implementation. Please verify against the actual runtime before drawing conclusions.
+
 ## Languages
 
 | Language | File | ReDoS Impact |
