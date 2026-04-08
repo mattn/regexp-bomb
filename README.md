@@ -27,6 +27,7 @@ The pattern `/(a+)*b$/` tested against the string `"aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 | **R** | `r/main.R` | Slow (PCRE via `perl = TRUE`) |
 | **Elixir** | `elixir/main.exs` | Fast (PCRE2, backtracking limit) |
 | **Haskell** | `haskell/Main.hs` | Slow (TDFA, pattern-dependent) |
+| **C++** | `cpp/main.cpp` | Slow (std::regex, backtracking engine) |
 
 ## Test Results
 
@@ -40,6 +41,7 @@ Tested locally with a 10-second timeout:
 | **Ruby** | false | 0.000008s |
 | **JavaScript (Node.js)** | - | **TIMEOUT (>10s)** |
 | **Python** | - | **TIMEOUT (>10s)** |
+| **C++** | - | **TIMEOUT (>10s)** |
 
 ## Why?
 
