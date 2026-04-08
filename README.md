@@ -18,7 +18,7 @@ The pattern `/(a+)*b$/` tested against the string `"aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 | **Java** | `java/Main.java` | Fast (JIT-optimized regex engine) |
 | **C#** | `csharp/Program.cs` | Slow (backtracking engine) |
 | **Perl** | `perl/main.pl` | Fast (regex engine optimizes this pattern) |
-| **PHP** | `php/main.php` | Slow (PCRE, but has backtracking limit) |
+| **PHP** | `php/main.php` | Fast (PCRE backtracking limit prevents hang) |
 | **Swift** | `swift/main.swift` | Slow (ICU regex) |
 | **Kotlin** | `kotlin/main.kt` | Fast (uses java.util.regex internally) |
 | **Scala** | `scala/Main.scala` | Fast (uses java.util.regex internally) |
